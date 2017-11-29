@@ -1,0 +1,60 @@
+{
+  "Items": [
+    {
+      "Analyzer": "MeaningfulNameForVariablesAnalyzer",
+      "OccurrenceCount": 32,
+      "Exceptions": null,
+      "SentToServer": true,
+      "InstallationName": "DESKTOP-LLCTIMB"
+    },
+    {
+      "Analyzer": "UseUsingsOnIDisposableAnalyzer",
+      "OccurrenceCount": 1871,
+      "Exceptions": null,
+      "SentToServer": true,
+      "InstallationName": "DESKTOP-LLCTIMB"
+    },
+    {
+      "Analyzer": "LongMethodAnalyzer",
+      "OccurrenceCount": 1,
+      "Exceptions": null,
+      "SentToServer": true,
+      "InstallationName": "DESKTOP-LLCTIMB"
+    },
+    {
+      "Analyzer": "ConstantVariableAnalyzer",
+      "OccurrenceCount": 1,
+      "Exceptions": null,
+      "SentToServer": true,
+      "InstallationName": "DESKTOP-LLCTIMB"
+    },
+    {
+      "Analyzer": "FloatVariablesComparisonAnalyser",
+      "OccurrenceCount": 1,
+      "Exceptions": null,
+      "SentToServer": true,
+      "InstallationName": "DESKTOP-LLCTIMB"
+    },
+    {
+      "Analyzer": "IEnumerableMultipleEvaluationsAnalyzer",
+      "OccurrenceCount": 3,
+      "Exceptions": null,
+      "SentToServer": true,
+      "InstallationName": "DESKTOP-LLCTIMB"
+    },
+    {
+      "Analyzer": "PropertyToExpressionAnalyzer",
+      "OccurrenceCount": 1,
+      "Exceptions": null,
+      "SentToServer": true,
+      "InstallationName": "DESKTOP-LLCTIMB"
+    },
+    {
+      "Analyzer": "AsyncAwaitMethodAnalyzer",
+      "OccurrenceCount": 22,
+      "Exceptions": null,
+      "SentToServer": true,
+      "InstallationName": "DESKTOP-LLCTIMB"
+    }
+  ]
+}
