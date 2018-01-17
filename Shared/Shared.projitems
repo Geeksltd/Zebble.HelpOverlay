@@ -11,15 +11,14 @@
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)NuGet\NuGet.nuspec" />
     <None Include="$(MSBuildThisFileDirectory)NuGet\CreatePackage.bat" />
+    <None Include="$(MSBuildThisFileDirectory)PopOver.scss" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)NuGet\Icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)UserHelpCollection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Arrow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Balloon.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserHelp.cs" />
   </ItemGroup>
 </Project>

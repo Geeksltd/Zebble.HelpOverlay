@@ -1,24 +1,48 @@
 ﻿namespace Zebble
 {
+    using System;
     using System.Threading.Tasks;
-    public class Arrow : Stack
+    public class Arrow : Canvas
     {
-        public bool IsXBoundedToBalloon { get; set; } = true;
-        public bool IsYBoundedToBalloon { get; set; } = true;
-        public ArrowDirections Direction { get; set; } = ArrowDirections.Bottom;
+        public enum ArrowDirections { Top, Bottom, Right, Left }
 
-        public enum ArrowDirections
+        Canvas Canvas = new Canvas { CssClass = "inner" };
+        
+        public ArrowDirections Direction { get; private set; } = ArrowDirections.Bottom;
+
+        public Arrow()
         {
-            Top = 0,
-            Bottom = 1,
-            Right = 2,
-            Left = 3
+            CssClass = "arrow point-down";
+            ClipChildren = true;
         }
 
-        public override Task OnInitializing()
+        public Task SetDirection(ArrowDirections direction)
         {
-            WhenShown(() => this.ZIndex(1));
-            return base.OnInitializing();
+            var cssClass = CssClass.Remove(GetCssClassFor(Direction)) + GetCssClassFor(direction);
+            Direction = direction;
+            return SetCssClass(cssClass);
+        }
+
+        public override async Task OnInitializing()
+        {
+            //WhenShown(() => this.ZIndex(1));
+            await Add(Canvas);
+            await base.OnInitializing();
+        }
+
+        string GetCssClassFor(ArrowDirections direction)
+        {
+            switch (direction)
+            {
+                case ArrowDirections.Top:
+                    return "point-up";
+
+                case ArrowDirections.Bottom:
+                    return "point-down";
+
+                default:
+                    return $"point-{direction.ToString().ToLower()}";
+            }
         }
     }
 }
