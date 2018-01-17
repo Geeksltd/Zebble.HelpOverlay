@@ -55,6 +55,15 @@
       "Exceptions": null,
       "SentToServer": true,
       "InstallationName": "DESKTOP-LLCTIMB"
+    },
+    {
+      "Analyzer": "UnusedMethodsAnalyzer",
+      "OccurrenceCount": 18,
+      "Exceptions": {
+        "ArgumentException": "Value does not fall within the expected range.\r\n\r\nSource:\r\n"
+      },
+      "SentToServer": false,
+      "InstallationName": "HAMIDM"
     }
   ]
 }

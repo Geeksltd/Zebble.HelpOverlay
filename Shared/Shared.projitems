@@ -19,6 +19,6 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Arrow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)UserHelp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PopOver.cs" />
   </ItemGroup>
 </Project>

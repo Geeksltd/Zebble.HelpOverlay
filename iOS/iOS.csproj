@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Zebble</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>Zebble.HelpOverlay.iOS</AssemblyName>
+    <AssemblyName>Zebble.PopOver.iOS</AssemblyName>
     <OutputPath>..\lib\</OutputPath>
     <DefineConstants>__UNIFIED__;__MOBILE__;__IOS__;IOS;</DefineConstants>
   </PropertyGroup>
@@ -22,7 +22,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <DocumentationFile>..\lib\Zebble.HelpOverlay.iOS.xml</DocumentationFile>
+    <DocumentationFile>..\lib\Zebble.PopOver.iOS.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
