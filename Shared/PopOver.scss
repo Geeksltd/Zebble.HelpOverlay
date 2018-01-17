@@ -7,9 +7,6 @@ $arrow-size: 30px;
 }
 
 .pop-over-container {
-    height: 100%;
-    width: 100%;
-
     .arrow {
         position: absolute;
         width: $arrow-size;
@@ -44,7 +41,7 @@ $arrow-size: 30px;
     .balloon {
         position: absolute;
         background-color: white;
-        margin: 10px;
+        margin: 0 10px;
         border-color: black;
         border-radius: 5px;
 

@@ -13,7 +13,9 @@
 
         public readonly Stack Balloon = new Stack { CssClass = "balloon" };
         public readonly Arrow Arrow = new Arrow();
-        
+
+        public readonly AsyncEvent OnShown = new AsyncEvent();
+        public readonly AsyncEvent OnHide = new AsyncEvent();
 
         internal PopOver(View owner, View content)
         {
@@ -50,6 +52,7 @@
                 Change = () => { Style.Opacity = 1; },
                 Duration = Animation.FadeDuration
             });
+            await OnShown.Raise();
         }
 
         public async Task Hide()
@@ -63,6 +66,7 @@
             });
 
             await this.RemoveSelf();
+            await OnHide.Raise();
         }
 
         async Task CalculateThePositions()
@@ -72,18 +76,21 @@
             
             var balloonHeight = Balloon.ActualHeight > 0 ? Balloon.ActualHeight : Balloon.CurrentChildren.Sum(x => x.ActualHeight); 
             var arrowHeight = Arrow.ActualHeight > 0 ? Arrow.ActualHeight : Arrow.CurrentChildren.Sum(x => x.ActualHeight);
-            
+
+            Height.BindTo(Arrow.Height, Balloon.Height, (a, b) => a / 2 + b);
+
             if (ownerY > balloonHeight + arrowHeight)
             {
-                Balloon.Y.BindTo(Balloon.Height, Arrow.Height, (b, a) => ownerY - b - a / 2);
-                Arrow.Y.BindTo(Arrow.Height, a => ownerY - a / 2);
+                Y.BindTo(Height, h => ownerY - h);
+                Arrow.Y.BindTo(Balloon.Height);
             }
             else
             {
+                Y.BindTo(Owner.Height, o => o + ownerY);
                 await Arrow.SetDirection(Arrow.ArrowDirections.Top);
 
-                Balloon.Y.BindTo(Owner.Height, Arrow.Height, (o, a) => ownerY + o + a / 2);
-                Arrow.Y.BindTo(Owner.Height, Arrow.Height, (o, a) => ownerY + o - a / 2);
+                Balloon.Y.BindTo(Arrow.Height, a => a / 2);
+                Arrow.Y.BindTo(Arrow.Height, a => -a / 2);
             }
 
             Arrow.X.BindTo(Owner.Width, Arrow.Width, (o, a) => ownerX + o / 2 - a / 2);
