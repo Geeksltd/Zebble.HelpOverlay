@@ -20,3 +20,11 @@ var popOver = await aViewOnThePage.ShowPopOver("A piece of advice.");
 ...
 await popOver.Hide();
 ```
+
+### Events
+- OnShown
+- OnHide
+```csharp
+public readonly AsyncEvent OnShown = new AsyncEvent();
+public readonly AsyncEvent OnHide = new AsyncEvent();
+```
