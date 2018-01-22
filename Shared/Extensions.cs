@@ -12,7 +12,7 @@ namespace Zebble
         {
             if (owner.Id == null) throw new Exception("The owner view should have identification");
             var result = new PopOver(owner, content);
-            await Nav.CurrentPage.Add(result);
+            await View.Root.Add(result);
             await result.Show();
             return result;
         }
