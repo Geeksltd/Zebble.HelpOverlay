@@ -28,6 +28,9 @@
             //WhenShown(() => this.ZIndex(1));
             await Add(Canvas);
             await base.OnInitializing();
+
+            // TODO: the following line should be removed when the iOS rotation problem solved.
+            await WhenShown(() => Canvas.Rotation(45));
         }
 
         string GetCssClassFor(ArrowDirections direction)
