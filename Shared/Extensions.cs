@@ -1,20 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Zebble
+﻿namespace Zebble
 {
+    using System;
+    using System.Threading.Tasks;
+
     public static class Extensions
     {
-        public static Task<PopOver> ShowPopOver(this View owner, string help) => owner.ShowPopOver(new TextView(help));
-        public static async Task<PopOver> ShowPopOver(this View owner, View content)
+        public static Task<PopOver> PopOver(this View view, string help) => view.PopOver(new TextView(help));
+
+        public static async Task<PopOver> PopOver(this View view, View content)
         {
-            if (owner.Id == null) throw new Exception("The owner view should have identification");
-            var result = new PopOver(owner, content);
-            await View.Root.Add(result);
-            await result.Show();
-            return result;
+            if (view.Id == null) throw new Exception("The view that you are trying to add a PopOver should have an Id.");
+
+            var popOver = new PopOver(view, content);
+            await View.Root.Add(popOver);
+            await popOver.Show();
+            return popOver;
         }
     }
 }

@@ -4,10 +4,9 @@
     using System.Threading.Tasks;
     public class Arrow : Canvas
     {
-        public enum ArrowDirections { Top, Bottom, Right, Left }
+        Canvas Inner = new Canvas { CssClass = "inner" };
 
-        Canvas Canvas = new Canvas { CssClass = "inner" };
-        
+        public enum ArrowDirections { Top, Bottom, Right, Left }
         public ArrowDirections Direction { get; private set; } = ArrowDirections.Bottom;
 
         public Arrow()
@@ -25,12 +24,12 @@
 
         public override async Task OnInitializing()
         {
-            //WhenShown(() => this.ZIndex(1));
-            await Add(Canvas);
+            await Add(Inner);
+
             await base.OnInitializing();
 
             // TODO: the following line should be removed when the iOS rotation problem solved.
-            await WhenShown(() => Canvas.Rotation(45));
+            await WhenShown(() => Inner.Rotation(45));
         }
 
         string GetCssClassFor(ArrowDirections direction)

@@ -1,10 +1,8 @@
 ﻿namespace Zebble
 {
     using System;
-    using System.Xml.Linq;
     using System.Linq;
     using System.Threading.Tasks;
-    using System.Collections.Generic;
 
     public class PopOver : Canvas
     {
@@ -22,7 +20,6 @@
             Owner = owner;
             Content = content;
 
-
             content.SetCssClass(content.CssClass + " content");
             CssClass = "pop-over-container";
         }
@@ -37,10 +34,10 @@
             await Balloon.Add(Content);
             await Add(Arrow);
             await Add(Balloon);
-            
-            await CalculateThePositions();
+
+            await CalculatePositions();
         }
-        
+
         internal async Task Show()
         {
             await BringToFront();
@@ -52,6 +49,7 @@
                 Change = () => { Style.Opacity = 1; },
                 Duration = Animation.FadeDuration
             });
+
             await OnShown.Raise();
         }
 
@@ -69,12 +67,12 @@
             await OnHide.Raise();
         }
 
-        async Task CalculateThePositions()
+        async Task CalculatePositions()
         {
             var ownerY = Owner.CalculateAbsoluteY();
             var ownerX = Owner.CalculateAbsoluteX();
-            
-            var balloonHeight = Balloon.ActualHeight > 0 ? Balloon.ActualHeight : Balloon.CurrentChildren.Sum(x => x.ActualHeight); 
+
+            var balloonHeight = Balloon.ActualHeight > 0 ? Balloon.ActualHeight : Balloon.CurrentChildren.Sum(x => x.ActualHeight);
             var arrowHeight = Arrow.ActualHeight > 0 ? Arrow.ActualHeight : Arrow.CurrentChildren.Sum(x => x.ActualHeight);
 
             Height.BindTo(Arrow.Height, Balloon.Height, (a, b) => a / 2 + b);

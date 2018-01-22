@@ -1,11 +1,11 @@
-[logo]: https://raw.githubusercontent.com/Geeksltd/{Plugin.Name}/master/Shared/NuGet/Icon.png "{Plugin.Name}"
+[logo]: https://raw.githubusercontent.com/Geeksltd/Zebble.PopOver/master/Shared/NuGet/Icon.png "Zebble.PopOver"
 
 
 ## Zebble.PopOver
 
 ![logo]
 
-PopOver is a plugin for Zebble applications which make developers able to show a small hint to the user. This hint could be a simple text or a styled content.
+A Zebble plugin that adds small overlay content to any view for housing extra information. The PopOver content can be a simple text or a complex heirarchy of views.
 
 
 [![NuGet](https://img.shields.io/nuget/v/Zebble.PopOver.svg?label=NuGet)](https://www.nuget.org/packages/Zebble.PopOver/)
@@ -29,13 +29,17 @@ PopOver is a plugin for Zebble applications which make developers able to show a
 
 ### Api Usage
 
-Display a PopOver over the a view.
+##### Show a PopOver
 
 ```csharp
-var popOver = await aViewOnThePage.ShowPopOver("A piece of advice.");
+var popOver = await SomeView.PopOver("A piece of advice.");
+//Or
+var popOver = await SomeView.PopOver(new Canvas());
 ```
 
-Although it adds a cross to provide the close functionality, you may need to close it programmatically.
+
+##### Hide a PopOver
+PopOver adds a close button to provide the hide functionality, you may need to close it programmatically.
 
 ```csharp
 await popOver.Hide();
@@ -57,8 +61,8 @@ await popOver.Hide();
 ### Methods
 | Method        | Return Type  | Parameters                          | Android | iOS | Windows |
 | :-----------  | :----------- | :-----------                        | :------ | :-- | :------ |
-| ShowPopOver * | Task<PopOver>| help -> string                      | x       | x   | x       |
-| ShowPopOver * | Task<PopOver>| content -> Zebble.View              | x       | x   | x       |
+| PopOver *     | Task<PopOver>| help -> string                      | x       | x   | x       |
+| PopOver *     | Task<PopOver>| content -> Zebble.View              | x       | x   | x       |
 | Hide          | Task<PopOver>| help -> string                      | x       | x   | x       |
   
 \* Extension methods on Zebble.View objects.
