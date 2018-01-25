@@ -1,16 +1,18 @@
-﻿$popover-inner-arrow-size: 21px;
+$popover-inner-arrow-size: 21px;
 $popover-arrow-size: 30px;
 
 @mixin margin($top, $left, $navbar-height) {
+    margin-top: $top + 5px;
+    margin-left: $left - 10px;
 
-    @if $navbar-height == 60 {
+    /*@if $navbar-height == 60 {
         margin-top: $top + 5px;
         margin-left: $left - 10px;
     }
     @else {
         margin-top: $top;
         margin-left: $left;
-    }
+    }*/
 }
 
 @mixin pop-over($navbar-height) {
