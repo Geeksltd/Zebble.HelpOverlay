@@ -1,21 +1,12 @@
 $popover-inner-arrow-size: 21px;
 $popover-arrow-size: 30px;
 
-@mixin margin($top, $left, $navbar-height) {
+@mixin margin($top, $left) {
     margin-top: $top + 5px;
     margin-left: $left - 10px;
-
-    /*@if $navbar-height == 60 {
-        margin-top: $top + 5px;
-        margin-left: $left - 10px;
-    }
-    @else {
-        margin-top: $top;
-        margin-left: $left;
-    }*/
 }
 
-@mixin pop-over($navbar-height) {
+@mixin pop-over() {
     .pop-over-container {
         .arrow {
             position: absolute;
@@ -31,19 +22,19 @@ $popover-arrow-size: 30px;
 
             &.point- {
                 &left .inner {
-                    @include margin(0, $popover-arrow-size, $navbar-height);
+                    @include margin(0, $popover-arrow-size);
                 }
 
                 &right .inner {
-                    @include margin(0, 0, $navbar-height);
+                    @include margin(0, 0);
                 }
 
                 &up .inner {
-                    @include margin($popover-arrow-size / 2, $popover-arrow-size / 2, $navbar-height);
+                    @include margin($popover-arrow-size / 2, $popover-arrow-size / 2);
                 }
 
                 &down .inner {
-                    @include margin(-$popover-arrow-size / 2,$popover-arrow-size / 2, $navbar-height);
+                    @include margin(-$popover-arrow-size / 2,$popover-arrow-size / 2);
                 }
             }
         }

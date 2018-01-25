@@ -22,7 +22,7 @@ A Zebble plugin that adds small overlay content to any view for housing extra in
 ```
 * Call its mixin in the `common.scss` just like the other mixins.
 ```scss
-@include pop-over($navbar-height);
+@include pop-over();
 ```
 <br>
 
