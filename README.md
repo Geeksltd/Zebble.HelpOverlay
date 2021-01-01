@@ -1,4 +1,4 @@
-[logo]: https://raw.githubusercontent.com/Geeksltd/Zebble.PopOver/master/Shared/NuGet/Icon.png "Zebble.PopOver"
+﻿[logo]: https://raw.githubusercontent.com/Geeksltd/Zebble.PopOver/master/icon.png "Zebble.PopOver"
 
 
 ## Zebble.PopOver
